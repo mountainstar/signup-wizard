@@ -24,7 +24,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   <NuxtLayout name="auth">
     <UCard class="max-w-2xl w-full">
       <template #header>
-        <LayoutPageTitle>Sign in</LayoutPageTitle>
+        <LayoutPageTitle>Log in</LayoutPageTitle>
       </template>
 
       <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
@@ -39,7 +39,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         <CommonButton type="submit"> Submit </CommonButton>
       </UForm>
       <div class="flex justify-end">
-        <CommonLink to="/signup" target="_self"> Sign up </CommonLink>
+        <CommonLink to="/signup" target="_self"> Don't have an account? Sign up </CommonLink>
       </div>
     </UCard>
     <LayoutPageFooter />

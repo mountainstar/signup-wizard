@@ -1,24 +1,35 @@
 <script setup lang="ts">
-import { object, string, type InferType } from 'yup'
-import type { FormSubmitEvent } from '#ui/types'
+
+import { object, string } from 'yup';
+import type { FormSubmitEvent } from '#ui/types';
+import { storeToRefs } from 'pinia';
+import { useBookStore } from '@/stores/books';
+import { reactive } from 'vue';
+
+const store = useBookStore();
+const { fetchBooks } = store; // have all non reactiave stuff here
+const { books } = storeToRefs(store); // have all reactive states here
+
+await fetchBooks();
 
 const schema = object({
   email: string().email('Invalid email').required('Required'),
   password: string()
     .min(8, 'Must be at least 8 characters')
-    .required('Required')
-})
+    .required('Required'),
+  favoriteBook: string().required('Required')
+});
 
-type Schema = InferType<typeof schema>
 
 const state = reactive({
-  email: undefined,
-  password: undefined
-})
+  email: '',
+  password: '',
+  favoriteBook: ''
+});
 
-async function onSubmit (event: FormSubmitEvent<Schema>) {
+async function onSubmit(event: FormSubmitEvent) {
   // Do something with event.data
-  console.log(event.data)
+  console.log(event.data);
 }
 </script>
 
@@ -38,13 +49,17 @@ async function onSubmit (event: FormSubmitEvent<Schema>) {
     <UFormGroup label="Password" name="password" help="Password must be at least 8 characters">
       <UInput v-model="state.password" type="password" />
     </UFormGroup>
+    <UFormGroup label="Pick your favorite book!" name="favoriteBook">
+      <USelect v-model="state.favoriteBook" :options="books" option-attribute="title" />
+      </UFormGroup> 
+
 <!-- TODO: add favorite book search? -->
     <CommonButton type="submit">
       Submit
     </CommonButton>
   </UForm>
        <div class="flex justify-end">
-        <CommonLink to="/" target="_self">Back to Sign in</CommonLink>
+        <CommonLink to="/" target="_self">Back to Log in</CommonLink>
       </div>
     </UCard>
     <LayoutPageFooter />

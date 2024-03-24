@@ -1,17 +1,22 @@
-export const useWebsiteStore = defineStore('booksStore', {
-  state: () => [
-    {
-      id: '',
-      title: '',
-      author: '',
-      description: '',
-      cover_url: '',
-    },
-  ],
-  actions: {
-    async fetch() {
-      const { data } = await $fetch('https://localhost:9000/books');
-      this.books = data;
-    },
-  },
+import { defineStore } from 'pinia';
+interface Book {
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  cover_url: string;
+}
+export const useBookStore = defineStore('books', () => {
+  const books = ref<Book[]>([]);
+  const fetchBooks = async () => {
+    const { data }: any = await $fetch('http://localhost:9000/books');
+    if (data.books) {
+      books.value = data.books;
+    }
+  };
+
+  return {
+    books,
+    fetchBooks,
+  };
 });

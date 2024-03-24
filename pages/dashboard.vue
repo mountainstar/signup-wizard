@@ -6,9 +6,9 @@ definePageMeta({
 
 <template>
 <NuxtLayout name="page" > 
-    <template #header>about</template>
+    <template #header color="blue">Dashboard</template>
   <template #content>
-    <p>This page will be displayed at the /about route.</p>
+    <p>This page will be displayed at the /Dashboard route.</p>
   </template>
     </NuxtLayout>
 </template>

@@ -1,5 +1,6 @@
 
 <template>
+  <LayoutPageAppHeader />
   <LayoutPageWrapper>
     <slot />
   </LayoutPageWrapper>

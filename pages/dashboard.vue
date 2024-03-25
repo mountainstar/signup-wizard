@@ -75,7 +75,6 @@ const favoriteCardStyle = {
   flex-direction: column;
 }
 
-/* Ensure all cards have the same height */
 .UCard > div {
   flex-grow: 1;
 }

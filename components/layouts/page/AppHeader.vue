@@ -31,13 +31,13 @@
 }
 
 .header-container-dark {
-  background-color: #1f2937; /* Dark mode background color */
-  color: #f9fafb; /* Dark mode text color */
+  background-color: #1f2937; 
+  color: #f9fafb; 
 }
 
 .header-container-light {
-  background-color: #ffffff; /* Light mode background color */
-  color: #1f2937; /* Light mode text color */
+  background-color: #ffffff; 
+  color: #1f2937; 
 }
 </style>
 

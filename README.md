@@ -2,7 +2,7 @@
 
 ## Setup
 
-To get started, clone the repository from [GitHub](https://github.com/mountainstar/signup-wizard). Additionally, clone the repository [here](https://github.com/book-io/web-interview-project-signup-wizard) and follow the instructions in the README.md file. This application relies on locally running endpoints provided by the second repository.
+To get started, clone the repository from [GitHub](https://github.com/mountainstar/signup-wizard). Additionally, clone the api repository [here](https://github.com/book-io/web-interview-project-signup-wizard) and follow the instructions in the README.md file. This application relies on locally running endpoints provided by the second repository.
 
 Ensure that all dependencies are installed:
 
@@ -46,3 +46,4 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 - Update alerting functionality.
 - Refactor code to eliminate redundancy and improve maintainability.
+- add some test. I ran out of time to setup the test server :( 

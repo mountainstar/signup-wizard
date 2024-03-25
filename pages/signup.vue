@@ -33,12 +33,9 @@ import type { FormSubmitEvent } from '#ui/types';
 import { fetchBooks } from '../api/books';
 import type { BookType } from '../api/books';
 import { reactive, onMounted } from 'vue';
+import {useUserStore} from '../store/user';
+const state = useUserStore()
 
-const state = reactive({
-  email: '',
-  password: '',
-  favoriteBook: '',
-});
 
 const books = reactive<BookType[]>([]);
 

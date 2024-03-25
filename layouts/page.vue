@@ -1,6 +1,6 @@
 <template>
   <LayoutPageAppHeader />
-  <UContainer class="pt-20" >
+  <UContainer class="pt-32" >
     <LayoutPageHeader>
       <CommonTitle>
         <slot name="header" />

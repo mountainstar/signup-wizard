@@ -33,6 +33,7 @@ const isDark = computed({
 <style scoped>
 .header-container {
   padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
 }
 
 .logo-image {

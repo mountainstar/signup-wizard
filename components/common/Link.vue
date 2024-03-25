@@ -9,7 +9,7 @@
   </ULink>
 </template>
 
-<script>
+<script setup lang="ts">
 export default {
   props: {
     target: {

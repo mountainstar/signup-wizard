@@ -1,3 +1,10 @@
+
+<template>
+  <div class="text-2xl font-bold">
+    <slot>{{ text }}</slot>
+  </div>
+</template>
+
 <script lang="ts" setup>
 defineProps({
   text: {
@@ -6,9 +13,3 @@ defineProps({
   },
 })
 </script>
-
-<template>
-  <div class="text-2xl font-bold">
-    <slot>{{ text }}</slot>
-  </div>
-</template>

@@ -3,7 +3,7 @@
     <template #header>Welcome {{ state.email }}</template>
     <template #content>
       <div class="mb-4">
-        <div v-if="myFavoriteBook" class="mb-2 flex flex-col items-center">
+        <div v-if="myFavoriteBook" class="mb-4 flex flex-col items-center">
           <h2 class="text-lg font-semibold">Your favorite book:</h2>
           <div class="w-1/2">
             <UCard class="w-full" :style="favoriteCardStyle">

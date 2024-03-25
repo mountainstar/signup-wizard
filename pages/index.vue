@@ -24,7 +24,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   <NuxtLayout name="auth">
     <UCard class="max-w-2xl w-full">
       <template #header>
-        <LayoutPageTitle>Log in</LayoutPageTitle>
+        <CommonTitle>Log in</CommonTitle>
       </template>
 
       <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">

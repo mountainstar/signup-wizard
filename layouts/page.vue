@@ -1,10 +1,10 @@
 <template>
   <LayoutPageAppHeader />
-  <UContainer>
+  <UContainer class="pt-20" >
     <LayoutPageHeader>
-      <LayoutPageTitle>
+      <CommonTitle>
         <slot name="header" />
-      </LayoutPageTitle>
+      </CommonTitle>
     </LayoutPageHeader>
     <LayoutPageContent>
       <slot name="content" />

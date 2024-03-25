@@ -4,7 +4,7 @@ const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', "@pinia/nuxt"],
+  modules: ['@nuxt/ui', '@pinia/nuxt'],
   components: [
     {
       prefix: 'Layout',
@@ -17,4 +17,7 @@ export default defineNuxtConfig({
       global: true,
     },
   ],
+  typescript: {
+    typeCheck: true,
+  },
 });

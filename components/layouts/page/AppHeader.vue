@@ -1,14 +1,3 @@
-<script setup lang="ts">
-const colorMode = useColorMode()
-const isDark = computed({
-  get () {
-    return colorMode.value === 'dark'
-  },
-  set () {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-  }
-})
-</script>
 
 <template>
   <ClientOnly>
@@ -22,7 +11,7 @@ const isDark = computed({
         variant="ghost"
         aria-label="Theme"
         @click="isDark = !isDark"
-      >{{ isDark ? 'Dark mode' : 'Light Mode' }}</UButton>
+      >{{ isDark ? 'Switch to Light mode' : 'Switch to Dark Mode' }}</UButton>
     </div>
     <template #fallback>
       <div class="w-8 h-8" />
@@ -51,3 +40,15 @@ const isDark = computed({
   color: #1f2937; /* Light mode text color */
 }
 </style>
+
+<script setup lang="ts">
+const colorMode = useColorMode()
+const isDark = computed({
+  get () {
+    return colorMode.value === 'dark'
+  },
+  set () {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  }
+})
+</script>

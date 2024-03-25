@@ -2,18 +2,18 @@
   <NuxtLayout name="page">
     <template #header>Welcome {{ state.email }}</template>
     <template #content>
-      <div class="mb-8">
-        <div v-if="myFavoriteBook" class="mb-4 flex flex-col items-center">
+      <div class="mb-4">
+        <div v-if="myFavoriteBook" class="mb-2 flex flex-col items-center">
           <h2 class="text-lg font-semibold">Your favorite book:</h2>
           <div class="w-1/2">
             <UCard class="w-full" :style="favoriteCardStyle">
               <template #header>
                 <CommonBookTitle>{{ myFavoriteBook.title }}</CommonBookTitle> Author: {{ myFavoriteBook.author }}
               </template>
-              <img :src="myFavoriteBook.cover_url"  alt="Book Cover">
-              <template #footer>
-                {{ myFavoriteBook.description }}
-              </template>
+              <div class="flex justify-between gap-4">
+              <img :src="myFavoriteBook.cover_url" class="w-1/2" alt="Book Cover">
+              <div >{{ myFavoriteBook.description }}</div>
+              </div>
             </UCard>
           </div>
         </div>

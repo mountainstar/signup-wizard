@@ -21,8 +21,8 @@
 
 <style scoped>
 .header-container {
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #333;
+  padding: 2rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .logo-image {

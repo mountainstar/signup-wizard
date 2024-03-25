@@ -76,6 +76,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
     await navigateTo('/');
   } catch (error) {
     console.error(error);
+    // TODO: add some alert to show the user that the sign up failed
   }
 };
 </script>

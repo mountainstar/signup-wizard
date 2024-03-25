@@ -54,7 +54,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) =>{
 
   } catch (error) {
     console.error('Error logging in user:', error);
-
+// TODO: add some alert to show the user that the login failed
 
   }
 }

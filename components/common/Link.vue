@@ -9,30 +9,31 @@
   </ULink>
 </template>
 
-<script setup lang="ts">
-export default {
-  props: {
-    target: {
-      type: String,
-      default: "_blank"
-    },
-    href: {
-      type: String | undefined,
-      default: undefined
-    },
-    to: {
-      type: [String, Object, undefined],
-      default: undefined
-    }
+<script lang="ts" setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  target: {
+    type: String as () => string | undefined,
+    default: "_blank"
+  },
+  href: {
+    type: String as () => string | undefined,
+    default: ''
+  },
+  to: {
+    type: String as () => string | undefined,
+    default: ''
   }
-};
+});
+
 </script>
 
 <style scoped>
-  .underline-on-hover {
-    text-decoration: underline;
-  }
-  .underline-on-hover:hover {
-    text-decoration: none;
-  }
+.underline-on-hover {
+  text-decoration: underline;
+}
+.underline-on-hover:hover {
+  text-decoration: none;
+}
 </style>

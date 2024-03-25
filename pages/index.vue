@@ -1,4 +1,6 @@
 <template>
+  <UAlert v-if="errorState.isError" color="rose" variant="solid" :title="errorState.errorMessage" />
+
   <NuxtLayout name="auth">
     <UCard class="max-w-2xl w-full">
       <template #header>
@@ -27,8 +29,8 @@
 <script setup lang="ts">
 import { object, string, type InferType } from 'yup';
 import type { FormSubmitEvent } from '#ui/types';
-import {useUserStore} from '../store/user';
-const state = useUserStore()
+import { useUserStore } from '../store/user';
+const state = useUserStore();
 
 const schema = object({
   email: string().email('Invalid email').required('Required'),
@@ -37,12 +39,10 @@ const schema = object({
 
 type Schema = InferType<typeof schema>;
 
-
-
-const onSubmit = async (event: FormSubmitEvent<Schema>) =>{
+const onSubmit = async (event: FormSubmitEvent<Schema>) => {
   const { email, password } = event.data;
 
-  try{
+  try {
     await $fetch('http://localhost:9000/login', {
       method: 'POST',
       body: {
@@ -50,12 +50,13 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) =>{
         password,
       },
     });
-   await navigateTo('/dashboard');
-
+    await navigateTo('/dashboard');
   } catch (error) {
+    setError('Wrong email or password');
     console.error('Error logging in user:', error);
-// TODO: add some alert to show the user that the login failed
-
   }
-}
+};
+import { useErrorHandling } from '@/composables/errorHandling';
+
+const { errorState, clearError, setError } = useErrorHandling();
 </script>

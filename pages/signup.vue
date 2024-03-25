@@ -28,7 +28,7 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { object, string } from 'yup';
+import { object, string, type InferType } from 'yup';
 import type { FormSubmitEvent } from '#ui/types';
 import { fetchBooks } from '../api/books';
 import type { BookType } from '../api/books';
@@ -56,11 +56,11 @@ const schema = object({
   password: string().min(8, 'Must be at least 8 characters').required('Required'),
   favoriteBook: string().required('Required'),
 });
+type Schema = InferType<typeof schema>;
 
-const onSubmit = async (event: FormSubmitEvent<{ email: string; password: string; favoriteBook: string }>) => {
+const onSubmit = async (event: FormSubmitEvent<Schema>) => {
   try {
     const { email, password, favoriteBook } = event.data;
-    console.log(email, password, favoriteBook);
     const book = books.find((b) => b.title === favoriteBook);
 
     await $fetch('http://localhost:9000/users/new', {

@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="page">
-    <template #header>Welcome USER_NAME</template>
+    <template #header>Welcome {{ state.email }}</template>
     <template #content>
       <div class="mb-8">
         <div v-if="myFavoriteBook" class="mb-4 flex flex-col items-center">
@@ -41,6 +41,8 @@
 import type { BookType } from '~/api/books';
 import { fetchBooks, getFavoriteBooks } from '~/api/books';
 import { reactive, onMounted } from 'vue';
+import { useUserStore } from '~/store/user';
+const state = useUserStore()
 
 definePageMeta({
   layout: false,
@@ -51,11 +53,9 @@ let favoriteBookId: string | null = null;
 let myFavoriteBook: BookType | null = null;
 onMounted(async () => {
   try {
-    favoriteBookId = await getFavoriteBooks('chriswirthdesign@gmail.com');
+    favoriteBookId = await getFavoriteBooks(state.email);
     const fetchedBooks = await fetchBooks();
        myFavoriteBook = fetchedBooks.find((book: BookType) => book.id === favoriteBookId);
-      
-    
     const filteredBooks = fetchedBooks.filter((book: BookType) => book.id !== favoriteBookId);
     books.push(...filteredBooks);
   } catch (error) {
